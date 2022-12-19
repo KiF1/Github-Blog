@@ -11,12 +11,20 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 gap: 1rem;
+@media (max-width: 992px){
+    flex-direction: column;
+    position: relative;
+    margin-top: 2rem;
+}
 `
 
 export const Avatar = styled.img`
 width: 150px;
 border-radius: 10px;
 height: fit-content;
+@media (max-width: 992px){
+    margin-top: 1rem;
+}
 `
 
 export const Content = styled.div`
@@ -49,6 +57,13 @@ strong{
     font-family: Roboto;
     font-weight: 400;
     color: ${props => props.theme["gray-100"]};
+}
+@media (max-width: 992px){
+    position: unset;
+    a{
+        top: 1rem;
+        right: 1rem;
+    }
 }
 `
 

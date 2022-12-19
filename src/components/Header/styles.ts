@@ -11,4 +11,7 @@ background-size: 100% 100%;
 display: flex;
 justify-content: center;
 align-items: flex-end;
+@media(max-width: 992px){
+      height: 0;
+    }
 `
