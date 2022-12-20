@@ -20,7 +20,7 @@ export function Summary({ postData }: PostSummaryProps){
                 <Icons>
                     <Icon>
                         <GithubLogo size={20} />
-                        <span>{postData.user.login}</span>
+                        <span>{postData?.user?.login}</span>
                     </Icon>
                     <Icon>
                         <CalendarBlank size={20} />
