@@ -6,6 +6,7 @@ width: 100%;
 position: relative;
 display: flex;
 flex-direction: column;
+text-decoration: none;
 background-color: ${props => props.theme["blue-600"]};
 border-radius: 10px;
 padding: 2rem;

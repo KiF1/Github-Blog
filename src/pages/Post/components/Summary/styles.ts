@@ -50,6 +50,7 @@ gap: 1rem;
 
 h1{
     font-size: 1.5rem;
+    margin-top: 2rem;
     font-family: Roboto;
     font-weight: 700;
     color: ${props => props.theme["gray-300"]};

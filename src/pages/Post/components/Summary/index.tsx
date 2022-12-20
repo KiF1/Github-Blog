@@ -1,50 +1,34 @@
-import { ArrowLeft, Buildings, CalendarBlank, ChatCircle, GithubLogo, SignOut, Users } from "phosphor-react";
-import { useCallback, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { api } from "../../../../lib/axios";
+import { ArrowLeft, CalendarBlank, ChatCircle, GithubLogo, SignOut } from "phosphor-react";
+import { relativeDateFormatter } from "../../../../utils/formatter";
+import { IPost } from "../../../Blog";
 import { Container, Content, Icon, Icons } from "./styles";
 
-interface ProfileData {
-    login: string;
-    bio: string;
-    avatar_url: string;
-    html_url: string;
-    name: string;
-    company?: string;
-    followers: number;
+interface PostSummaryProps {
+    postData: IPost;
   }
 
 
-export function Summary(){
-//    const [profileData, setProfileData] = useState<ProfileData>({} as ProfileData);
-//    const getProfileData = useCallback(async () => {
-//     const response = await api.get(`users/KiF1`)
-//     setProfileData(response.data)
-//    }, [profileData]);
+export function Summary({ postData }: PostSummaryProps){
+    const formattedDate = relativeDateFormatter(postData?.created_at);
 
-//    useEffect(() => {
-//     getProfileData();
-//    }, [])
     return(
         <Container>
             <Content>
-                <NavLink className="navLink" to={`${profileData.html_url}`}>
-                  <ArrowLeft size={20} />
-                  <span>Voltar</span>
-                </NavLink>
-                <a className="link" href={profileData.html_url}>GITHUB <SignOut size={20} /></a>
+                <a className="navLink" href="/"><ArrowLeft size={20} />Voltar</a>
+                <a className="link" href={postData.html_url}>GITHUB <SignOut size={20} /></a>
+                <h1>{postData.title}</h1>
                 <Icons>
                     <Icon>
                         <GithubLogo size={20} />
-                        <span>{profileData.login}</span>
+                        <span>{postData.user.login}</span>
                     </Icon>
                     <Icon>
                         <CalendarBlank size={20} />
-                        <span>Zaite</span>
+                        <span>{formattedDate}</span>
                     </Icon>
                     <Icon>
                         <ChatCircle size={20} />
-                        <span>{profileData.followers}</span>
+                        <span>{postData.comments}</span>
                     </Icon>
                 </Icons>
             </Content>
