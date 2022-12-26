@@ -2,7 +2,7 @@
 
 ## Funcionalidades:
 - Listar Issues de um repositório no github
-- Trazer todas as informações
+- Trazer todas as informações do dono do repositório
 - Pesquisar issues de um repositório
 - Vizualizar issue em especifico de um repositório
 
